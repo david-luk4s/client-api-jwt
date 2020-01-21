@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'conde'`, () => {
+  it(`should have as title 'client-api-jwt'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('conde');
+    expect(app.title).toEqual('client-api-jwt');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('conde app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('client-api-jwt app is running!');
   });
 });
