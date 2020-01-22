@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "client-api-jwt": {
+    "client-api-jwt-jwt": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/client-api-jwt",
+            "outputPath": "dist/client-api-jwt-jwt",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "client-api-jwt:build"
+            "browserTarget": "client-api-jwt-jwt:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "client-api-jwt:build:production"
+              "browserTarget": "client-api-jwt-jwt:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "client-api-jwt:build"
+            "browserTarget": "client-api-jwt-jwt:build"
           }
         },
         "test": {
@@ -111,15 +111,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "client-api-jwt:serve"
+            "devServerTarget": "client-api-jwt-jwt:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "client-api-jwt:serve:production"
+              "devServerTarget": "client-api-jwt-jwt:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "client-api-jwt"
+  "defaultProject": "client-api-jwt-jwt"
 }

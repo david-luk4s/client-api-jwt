@@ -3,9 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 //add imports
 import { LoginComponent } from './login/login.component';
+import { UsersComponent } from './users/users.component';
+import { AuthGuardService } from './guard/auth-guard.service';
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'users', canActivate:[AuthGuardService], component: UsersComponent}
 ];
 
 @NgModule({

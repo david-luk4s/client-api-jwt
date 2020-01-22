@@ -5,9 +5,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const ApiRoutes = {
   login: 'login',
-  validate_login: 'validate_login',
   users: 'users'
 };
+
+const headerApi = '';
 
 @Injectable({
   providedIn: 'root'
@@ -21,22 +22,11 @@ export class UsersService {
   public login = (user: any) => {
 
     let uri = `${this.UriApi}/${ApiRoutes.login}`;
+    let headers = new HttpHeaders({'Content-Type': 'application/json','Accept': 'application/vnd.token_auth.v1','Requirer': 'client-api-jwt',});
 
-    return this.requests.post(uri, JSON.stringify(user), this.loadHeaders() );
+    return this.requests.post<any>(uri, JSON.stringify(user), {headers: headers, observe: 'response'});
 
   };
 
-  private loadHeaders = (token: string = '')  => {
 
-    let headers =  new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Accept': 'application/vnd.token_auth.v1',
-      'Requirer': 'ponto',
-      'Authorization': `Bearer ${token}`
-    });
-
-    return {headers};
-  };
-
-  
 }

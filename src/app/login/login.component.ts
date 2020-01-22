@@ -13,16 +13,27 @@ export class LoginComponent implements OnInit {
 
   private user: any = {};
 
-  constructor(private userService: UsersService) { }
+  constructor(private api: UsersService) { }
 
   ngOnInit() {
-    this.user = {
-      email: '',
-      password: ''
-    };
+    this.user = {session: {uid: '', password: ''}};
   }
 
-  public signin = (form: FormGroup) => {
-    console.log(form.value);
+  async signin(form: FormGroup){
+
+    if(form.valid){
+      await this.api.login(this.user).subscribe(
+        data => {
+          localStorage.setItem('token', data.headers.get('access-token'));
+          console.log(data.headers.get('access-token'));
+        },
+        error => {
+          console.log('Erro in api', error.message);
+        }
+      );
+    }else{
+      console.log('Formulário invalído!');
+    }
+
   };
 }
